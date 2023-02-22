@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 import requests
 from VideoAI.forms import TextInputForm
 import os
-from VideoAI.VideoGen import copy_templates, copy_user_images, get_images, customized_images, segment_audio
+from VideoAI.VideoGen import copy_templates, copy_user_images, get_images, customized_images, get_templates, segment_audio
 from .forms import ImageForm, NewUserForm
 from django.contrib.auth import login
 from django.contrib import messages
@@ -104,7 +104,7 @@ def text_view(request):
         copy_user_images(username)
         sentences = customized_images(text, username)
         segment_audio(sentences, background_audio_choice, username)
-        return redirect('image-view')
+        return redirect('template-view')
     else:
         background_voices = ['None', 'Lovely', 'Piano', 'Relax']
         return render(request, 'text_view.html', {'text': text, 'background_voices': background_voices})
@@ -121,10 +121,15 @@ def upload_image(request):
         form = ImageForm()
     return render(request, 'upload.html', {'form': form})
 
-
+def templates_view(request):
+    username = base64_decode(request.COOKIES.get('id'))
+    templates_path = get_templates(username)
+    temp_name = [temp.split("/")[-1] for temp in templates_path]
+    templates = [os.path.join(f"src/templates/{username}", temp) for temp in temp_name]
+    return render(request, 'templates_view.html', {'images':templates})
+    
 def image_view(request):
     username = base64_decode(request.COOKIES.get('id'))
-    
     form = ImageForm()
     images = get_images(username)
     return render(request, 'image_view.html', {'images':images,'form':form})
