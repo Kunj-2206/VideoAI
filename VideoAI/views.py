@@ -104,7 +104,7 @@ def text_view(request):
         copy_user_images(username)
         sentences = customized_images(text, username)
         segment_audio(sentences, background_audio_choice, username)
-        return redirect('template-view')
+        return redirect('image-view')
     else:
         background_voices = ['None', 'Lovely', 'Piano', 'Relax']
         return render(request, 'text_view.html', {'text': text, 'background_voices': background_voices})
@@ -121,13 +121,6 @@ def upload_image(request):
         form = ImageForm()
     return render(request, 'upload.html', {'form': form})
 
-def templates_view(request):
-    username = base64_decode(request.COOKIES.get('id'))
-    templates_path = get_templates(username)
-    temp_name = [temp.split("/")[-1] for temp in templates_path]
-    templates = [os.path.join(f"src/templates/{username}", temp) for temp in temp_name]
-    return render(request, 'templates_view.html', {'images':templates})
-    
 def image_view(request):
     username = base64_decode(request.COOKIES.get('id'))
     form = ImageForm()

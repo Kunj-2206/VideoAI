@@ -126,7 +126,7 @@ def segment_audio(sentences,background_voice, username):
         tts.save(os.path.join(audio_path))
         sent_audio = AudioSegment.from_file(audio_path)
         durations.append(sent_audio.duration_seconds)
-        if(background_voice!=None):
+        if(background_voice is ['Piano', 'Lovely', 'Relax']):
             add_background_voice(audio_path,background_voice.lower())
     return durations
 
