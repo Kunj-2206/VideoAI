@@ -130,14 +130,8 @@ def segment_audio(sentences,background_voice, username):
             add_background_voice(audio_path,background_voice.lower())
     return durations
 
-def generate_video(text,username,background_voice=None):
-    
+def generate_video(username):
     os.system(f"python3 VideoMaker.py {username}")
     
-    video_path = os.path.join(f"VideoAI/static/src/video/{username}_Final.mp4")
-    path = open(video_path, 'r')
-    mime_type, _ = mimetypes.guess_type(video_path)
-    response = HttpResponse(path, content_type=mime_type)
-    response['Content-Disposition'] = "attachment; filename=%s" % video_path
-    return response
+    
 

@@ -1,10 +1,11 @@
+import mimetypes
 import re
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import requests
 from VideoAI.forms import TextInputForm
 import os
-from VideoAI.VideoGen import copy_templates, copy_user_images, get_images, customized_images, get_templates, segment_audio
+from VideoAI.VideoGen import copy_templates, copy_user_images, generate_video, get_images, customized_images, get_templates, segment_audio
 from .forms import ImageForm, NewUserForm
 from django.contrib.auth import login
 from django.contrib import messages
@@ -126,3 +127,13 @@ def image_view(request):
     form = ImageForm()
     images = get_images(username)
     return render(request, 'image_view.html', {'images':images,'form':form})
+
+def create_video(request):
+    username = base64_decode(request.COOKIES.get('id'))
+    generate_video(username)
+    video_path = os.path.join(f"VideoAI/static/src/video/{username}_Final.mp4")
+    path = open(video_path, 'r')
+    mime_type, _ = mimetypes.guess_type(video_path)
+    response = HttpResponse(path, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % video_path
+    return response
