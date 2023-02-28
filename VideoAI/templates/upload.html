@@ -145,6 +145,7 @@ p {
   div {
     margin: 0 0 .5rem 0;
     color: $dark-text;
+    background-color: #123123;
   }
   .btn {
     display: inline-block;
@@ -171,7 +172,19 @@ p {
 }
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<label style="font-size:40px;"> Delete Image </label>
+<p> You already uploaded {{no_of_uimg}} images out of 5 </p>
+{% for user_image in user_images %}
+  <div style="background-color:#8e969e; font-size:20px">{{user_image}}</div>
+{% endfor %}
 
+<form method="post">
+  {% csrf_token %}
+  {{DltImgform|crispy}}
+  <button type="submit">Delete Image</button>
+</form>
+
+<label style="font-size:40px"> Upload Image </label>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}

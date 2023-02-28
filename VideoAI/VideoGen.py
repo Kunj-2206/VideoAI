@@ -28,6 +28,12 @@ def get_templates(username):
     templates.sort()
     return templates
 
+def get_user_images(username):
+    user_images_folder = os.path.join(f"media/{username}")
+    user_images = [os.path.join(uimg) for uimg in os.listdir(user_images_folder)]
+    user_images.sort()
+    return user_images
+    
 def add_background_voice(audio_path,background_voice):
     sound1 = AudioSegment.from_file(f"VideoAI/static/src/audio/background_{background_voice}_audio.mp3")
     sound2 = AudioSegment.from_file(audio_path)
@@ -130,8 +136,8 @@ def segment_audio(sentences,background_voice, username):
             add_background_voice(audio_path,background_voice.lower())
     return durations
 
-def generate_video(username):
-    os.system(f"python3 VideoMaker.py {username}")
+def generate_video(username, email):
+    os.system(f"python3 VideoMaker.py {username} {email}")
     
     
 

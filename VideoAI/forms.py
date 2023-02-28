@@ -9,10 +9,13 @@ class TextInputForm(forms.Form):
     text_input = forms.CharField(max_length=10000, widget=forms.Textarea(attrs={'rows':25, 'cols':50}))
 
 class ImageForm(forms.ModelForm):
-    username = forms.CharField(max_length=2732)
+    username = forms.CharField(max_length=2732,required=False)
     class Meta:
         model = ImageModel
         fields = ['image']
+
+class DltImageForm(forms.Form):
+    image_name = forms.CharField(max_length=1000,required=False)
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)

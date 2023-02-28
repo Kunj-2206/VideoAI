@@ -1,8 +1,13 @@
+from email.message import EmailMessage
 from moviepy.editor import *
 import os
 from moviepy import editor
 from pydub import AudioSegment
 import sys
+
+import smtplib
+import os
+from email.message import EmailMessage
 
 abs_path = "/home/kunj/freelance_prj/text_to_video/web_app/Web_VideoAI/VideoAI/static"
 os.chdir(abs_path)
@@ -21,3 +26,35 @@ for i in range(0, len(images)):
     
 final_video = concatenate_videoclips([VideoFileClip(os.path.join(abs_path, f"src/video/{username}/seg_{i}.mp4")) for i in range(0, len(images))])
 final_video.write_videofile(os.path.join(abs_path, f"src/video/{username}/Final_video.mp4"), threads = 8 , fps=24)
+
+msg = EmailMessage()
+msg['Subject'] = 'Your video is ready for download'
+msg['From'] = 'freelancetestk@gmail.com' 
+msg['To'] = sys.argv[2]
+
+msg.set_content(f'''
+<!DOCTYPE html>
+<html>
+    <body>
+        <div style="background-color:#eee;padding:10px 20px;">
+            <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;color:#454349;text-align:center;">VideoAI</h2>
+        </div>
+        <div style="padding:20px 0px">
+            <div style="height: 100%;width:100%">
+                <img src="https://cdn.pixabay.com/photo/2020/11/07/10/25/machine-learning-5720531_960_720.png" style="height: 500px; width: 100%">
+                <div style="text-align:center;">
+                    <h3>click to download your video</h3>
+                    <p>Hello {username}, We generated high definition video for you as per you wanted</p>
+                   <button type="button" onclick="window.location.href = 'http://127.0.0.1:8000/VideoAI/download/'">Download Video</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+''', subtype='html')
+
+with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+    smtp.ehlo()
+    smtp.login("freelancetestk@gmail.com", "fngougxcjbbzjdvr")
+    smtp.send_message(msg)
+    

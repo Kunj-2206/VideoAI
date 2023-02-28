@@ -9,7 +9,7 @@ def content_file_name(instance, filename):
     return file_path
 
 class ImageModel(models.Model):
-    image = models.ImageField(upload_to=content_file_name)
+    image = models.ImageField(upload_to=content_file_name, blank=True)
     
     def delete(self, *args, **kwargs):
         # Delete the file when the object is deleted from the database
