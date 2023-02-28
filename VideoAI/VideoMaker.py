@@ -3,7 +3,6 @@ import os
 from moviepy import editor
 from pydub import AudioSegment
 import sys
-import multiprocessing
 
 abs_path = "/home/kunj/freelance_prj/text_to_video/web_app/Web_VideoAI/VideoAI/static"
 os.chdir(abs_path)
