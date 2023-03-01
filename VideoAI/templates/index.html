@@ -50,9 +50,12 @@ footer{
   <title>VideoAI</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
+{% load static %}
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">VideoAI</a>
+  <img src="{% static 'images/TTV_logo.png' %}" style="width:75px;"></img>
+  <a class="navbar-brand" href="http://127.0.0.1:8000/VideoAI" style="font-family:sans-serif;">VideoAI</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -71,7 +74,7 @@ footer{
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">   
-          <img src="https://cdn.pixabay.com/photo/2020/11/07/10/25/machine-learning-5720531_960_720.png" class="d-block w-100" alt="Fond-header">
+          <img src="https://cdn.pixabay.com/photo/2020/11/07/10/25/machine-learning-5720531_960_720.png" class="d-block w-100" alt="Fond-header" style="width:auto;">
       </div>
     </div>
   </div>
