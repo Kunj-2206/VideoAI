@@ -41,12 +41,15 @@ msg.set_content(f'''
         </div>
         <div style="padding:20px 0px">
             <div style="height: 100%;width:100%">
-                <img src="https://cdn.pixabay.com/photo/2020/11/07/10/25/machine-learning-5720531_960_720.png" style="height: 500px; width: 100%">
+                <img src="https://cdn.pixabay.com/photo/2020/11/07/10/25/machine-learning-5720531_960_720.png" style="height: 500px; width: 500px; justify:center;">
                 <div style="text-align:center;">
                     <h3>click to download your video</h3>
                     <p>Hello {username}, We generated high definition video for you as per you wanted</p>
-                   <button type="button" onclick="window.location.href = 'http://127.0.0.1:8000/VideoAI/download/'">Download Video</button>
-                </div>
+                    <form action="http://127.0.0.1:8000/VideoAI/download/">
+                        <input type="submit" value="Download Video" />
+                    </form>
+
+                   </div>
             </div>
         </div>
     </body>
