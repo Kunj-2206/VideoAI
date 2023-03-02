@@ -29,7 +29,7 @@ final_video.write_videofile(os.path.join(abs_path, f"src/video/{username}/Final_
 
 msg = EmailMessage()
 msg['Subject'] = 'Your video is ready for download'
-msg['From'] = 'freelancetestk@gmail.com' 
+msg['From'] = 'videoai.links@gmail.com' 
 msg['To'] = sys.argv[2]
 
 msg.set_content(f'''
@@ -58,6 +58,6 @@ msg.set_content(f'''
 
 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
     smtp.ehlo()
-    smtp.login("freelancetestk@gmail.com", "fngougxcjbbzjdvr")
+    smtp.login("videoai.links@gmail.com", "npiuswlwrzpeivvc")
     smtp.send_message(msg)
     
