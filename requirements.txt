@@ -60,3 +60,4 @@ uri-template==1.2.0
 urllib3==1.26.5
 
 tornado>=6.3.2 # not directly required, pinned by Snyk to avoid a vulnerability
+jupyter-server>=2.7.2 # not directly required, pinned by Snyk to avoid a vulnerability
