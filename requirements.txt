@@ -1,7 +1,7 @@
 audioread==3.0.0
 beautifulsoup4==4.10.0
 bs4==0.0.1
-Django==3.2.20
+Django==3.2.21
 django-crispy-forms==2.0
 djangorestframework==3.14.0
 docstring-parser==0.7.1
