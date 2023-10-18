@@ -57,6 +57,6 @@ ubuntu-advantage-tools==27.12
 ubuntu-drivers-common==0.0.0
 universal_pathlib==0.0.21
 uri-template==1.2.0
-urllib3==1.26.5
+urllib3==1.26.18
 
 tornado>=6.3.2 # not directly required, pinned by Snyk to avoid a vulnerability
