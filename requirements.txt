@@ -1,7 +1,7 @@
 audioread==3.0.0
 beautifulsoup4==4.10.0
 bs4==0.0.1
-Django==3.2.20
+Django==3.2.25
 django-crispy-forms==2.0
 djangorestframework==3.14.0
 docstring-parser==0.7.1
@@ -13,7 +13,7 @@ imgviz==1.6.2
 importlib-metadata==4.6.4
 importlib-resources==5.10.2
 ipykernel==6.7.0
-ipython==7.31.1
+ipython==8.10.0
 ipython_genutils==0.2.0
 ipywidgets==6.0.0
 isoduration==20.11.0
@@ -25,19 +25,19 @@ nbformat==5.7.0
 nlp==0.4.0
 nltk==3.8.1
 numpy==1.22.4
-opencv-contrib-python==4.6.0.66
-opencv-python==4.6.0.66
-opencv-python-headless==4.6.0.66
+opencv-contrib-python==4.8.1.78
+opencv-python==4.8.1.78
+opencv-python-headless==4.8.1.78
 openpyxl==3.0.10
 pandas==1.5.2
 pandas-stubs==1.5.2.221124
 pdfminer==20191125
 pdfminer.six==20221105
-Pillow==9.0.1
+Pillow==10.2.0
 py==1.10.0
 py4j==0.10.9.5
 PyAudio==0.2.11
-pydantic==1.10.4
+pydantic==1.10.13
 PyQt5==5.15.7
 PyQt5-Qt5==5.15.2
 PyQt5-sip==12.11.0
@@ -57,6 +57,12 @@ ubuntu-advantage-tools==27.12
 ubuntu-drivers-common==0.0.0
 universal_pathlib==0.0.21
 uri-template==1.2.0
-urllib3==1.26.5
+urllib3==1.26.18
 
-tornado>=6.3.2 # not directly required, pinned by Snyk to avoid a vulnerability
+tornado>=6.3.3 # not directly required, pinned by Snyk to avoid a vulnerability
+fonttools>=4.43.0 # not directly required, pinned by Snyk to avoid a vulnerability
+jupyter-server>=2.11.2 # not directly required, pinned by Snyk to avoid a vulnerability
+pyarrow>=14.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
+werkzeug>=2.3.8 # not directly required, pinned by Snyk to avoid a vulnerability
+wheel>=0.38.0 # not directly required, pinned by Snyk to avoid a vulnerability
