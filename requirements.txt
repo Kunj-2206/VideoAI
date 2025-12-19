@@ -59,4 +59,6 @@ universal_pathlib==0.0.21
 uri-template==1.2.0
 urllib3==1.26.5
 
-tornado>=6.3.2 # not directly required, pinned by Snyk to avoid a vulnerability
+tornado>=6.5.3 # not directly required, pinned by Snyk to avoid a vulnerability
+filelock>=3.20.1 # not directly required, pinned by Snyk to avoid a vulnerability
+fonttools>=4.61.0 # not directly required, pinned by Snyk to avoid a vulnerability
